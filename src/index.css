@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+}
+
+nav {
+  align-items: baseline;
+}
+
+#linkSection {
+  margin: 20px;
+}
+
+a {
+  margin: 10px;
+}

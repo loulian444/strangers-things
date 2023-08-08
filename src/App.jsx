@@ -1,9 +1,10 @@
+import Navbar from "./components/Navbar.jsx";
 import Router from "./components/Router.jsx";
 
 const App = () => {
   return (
     <>
-      <h1>Aloha World</h1>
+      <Navbar />
       <Router />
     </>
   );
