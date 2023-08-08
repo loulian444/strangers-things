@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RegisterForm from "./RegisterForm";
+import { Link } from "react-router-dom";
 
 const Register = ({ apiUrl }) => {
   const [registerInfo, setRegisterInfo] = useState(null);
@@ -34,8 +35,17 @@ const Register = ({ apiUrl }) => {
 
   return (
     <>
-      {successMessage ? <p>{successMessage}</p> : <p>{errorMessage}</p>}
-      <RegisterForm setRegisterInfo={setRegisterInfo} />
+      {!successMessage ? (
+        <>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+          <RegisterForm setRegisterInfo={setRegisterInfo} />
+        </>
+      ) : (
+        <>
+        <p>{successMessage}</p>
+        <Link to={"/login"}>Log in Here</Link>
+        </>
+      )}
     </>
   );
 };

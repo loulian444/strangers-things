@@ -37,8 +37,14 @@ const Login = ({ apiUrl, setToken }) => {
 
   return (
     <>
-      {successMessage ? <p>{successMessage}</p> : <p>{errorMessage}</p>}
-      <LoginForm setLoginInfo={setLoginInfo} />
+      {!successMessage ? (
+        <>
+          {errorMessage ? <p>{errorMessage}</p> : null}
+          <LoginForm setLoginInfo={setLoginInfo} />
+        </>
+      ) : (
+        <p>{successMessage}</p>
+      )}
     </>
   );
 };

@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import SellForm from "./SellForm.jsx";
 
 const Sell = ({ apiUrl, token }) => {
-  console.log(token);
   const [productInfo, setProductInfo] = useState(null);
-
-  console.log(productInfo);
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     const makePost = async () => {
@@ -23,7 +21,9 @@ const Sell = ({ apiUrl, token }) => {
 
         const result = await response.json();
 
-        console.log(result);
+        result.success
+          ? setSuccessMessage("Successfully Posted Item")
+          : setSuccessMessage("Post Failed");
       } catch (error) {
         alert(error);
       }
@@ -34,6 +34,7 @@ const Sell = ({ apiUrl, token }) => {
 
   return (
     <>
+      {successMessage ? <p>{successMessage}</p>: null}
       <SellForm setProductInfo={setProductInfo} />
     </>
   );

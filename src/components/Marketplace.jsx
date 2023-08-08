@@ -3,11 +3,17 @@ import Grid from "@mui/material/Grid";
 
 const Marketplace = ({ apiUrl, token }) => {
   const [products, setProducts] = useState([]);
-  const [changesHappened, setChangesHappened] = useState(false)
+  const [changesHappened, setChangesHappened] = useState(false);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
-      const response = await fetch(`${apiUrl}/posts`);
+      const response = await fetch(`${apiUrl}/posts`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const body = await response.json();
 
       setProducts(body.data.posts);
@@ -31,16 +37,16 @@ const Marketplace = ({ apiUrl, token }) => {
 
         const result = await response.json();
 
-        console.log(result);
+        !result.success ? alert(result.error.message) : null;
       } catch (error) {
         alert(error);
       }
-    }
+    };
 
-    deletePost()
-    setChangesHappened(true)
+    deletePost();
+    setChangesHappened(true);
   };
-  
+
   return (
     <>
       <h1>market</h1>
@@ -67,8 +73,11 @@ const Marketplace = ({ apiUrl, token }) => {
                 <p>
                   <b>Delivery</b>: {product.willDeliver ? "yes" : "no"}
                 </p>
-                {/* {product.isAuthor ? <button>Delete</button> : null} */}
-                <button onClick={() => deleteHandler(product._id)}>Delete</button>
+                {product.isAuthor ? (
+                  <button onClick={() => deleteHandler(product._id)}>
+                    Delete
+                  </button>
+                ) : null}
               </section>
             </Grid>
           );
