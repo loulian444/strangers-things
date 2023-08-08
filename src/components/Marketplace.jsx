@@ -54,9 +54,9 @@ const Marketplace = ({ apiUrl, token, products, setProducts }) => {
           return (
             <Grid item xs={3} key={product._id}>
               <section className="productSection">
-                <p>
+                <h2 className="productTitle">
                   <b>{product.title}</b>
-                </p>
+                </h2>
                 <p>
                   <b>Seller</b>: {product.author.username}
                 </p>

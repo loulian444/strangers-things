@@ -2,12 +2,12 @@ const Home = ({ products }) => {
   const randomProductNumber = Math.floor(Math.random() * products.length);
 
   return (
-    <>
+    <section id="homeSection">
       <h1>Featured Item!</h1>
-      <section className="productSection">
-        <p>
+      <section className="productSection" id="featuredProduct">
+        <h2 className="productTitle">
           <b>{products[randomProductNumber].title}</b>
-        </p>
+        </h2>
         <p>
           <b>Seller</b>: {products[randomProductNumber].author.username}
         </p>
@@ -21,10 +21,11 @@ const Home = ({ products }) => {
           <b>Location</b>: {products[randomProductNumber].location}
         </p>
         <p>
-          <b>Delivery</b>: {products[randomProductNumber].willDeliver ? "yes" : "no"}
+          <b>Delivery</b>:{" "}
+          {products[randomProductNumber].willDeliver ? "yes" : "no"}
         </p>
       </section>
-    </>
+    </section>
   );
 };
 
