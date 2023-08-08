@@ -11,7 +11,7 @@ const Router = ({ token, setToken }) => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/posts" element={<Marketplace apiUrl={apiUrl} />} />
+      <Route path="/posts" element={<Marketplace token={token} apiUrl={apiUrl} />} />
       <Route
         path="/login"
         element={<Login apiUrl={apiUrl} setToken={setToken} />}
