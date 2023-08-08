@@ -32,7 +32,19 @@ const Marketplace = () => {
                   <b>{product.title}</b>
                 </p>
                 <p>
+                  <b>Seller</b>: {product.author.username}
+                </p>
+                <p>
                   <b>Price</b>: {product.price}
+                </p>
+                <p>
+                  <b>Description</b>: {product.description}
+                </p>
+                <p>
+                  <b>Location</b>: {product.location}
+                </p>
+                <p>
+                  <b>Delivery</b>: {product.willDeliver ? "yes" : "no"}
                 </p>
               </section>
             </Grid>
