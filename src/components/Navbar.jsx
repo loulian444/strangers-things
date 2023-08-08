@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ token }) => {
   return (
     <nav className="flex">
       <section className="flex">
@@ -9,6 +9,7 @@ const Navbar = () => {
         <section id="linkSection">
           <Link to={"/"}>Home</Link>
           <Link to={"/posts"}>Marketplace</Link>
+          {token ? <Link to={"/sell"}>Sell</Link> : null}
         </section>
       </section>
 
