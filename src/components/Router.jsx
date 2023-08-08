@@ -10,17 +10,21 @@ const Router = ({ token, setToken }) => {
   const apiUrl =
     "https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf";
 
-  const [products, setProducts] = useState([]);
-
   return (
     <Routes>
-      <Route path="/" element={<Home products={products} />} />
+      <Route
+        path="/"
+        element={
+          <Home
+            apiUrl={apiUrl}
+            token={token}
+          />
+        }
+      />
       <Route
         path="/posts"
         element={
           <Marketplace
-            products={products}
-            setProducts={setProducts}
             token={token}
             apiUrl={apiUrl}
           />
