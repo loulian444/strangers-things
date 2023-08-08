@@ -17,7 +17,7 @@ const Router = ({ token, setToken }) => {
         element={<Login apiUrl={apiUrl} setToken={setToken} />}
       />
       <Route path="/register" element={<Register apiUrl={apiUrl} />} />
-      <Route path="/sell" element={<Sell token={token} />} />
+      <Route path="/sell" element={<Sell apiUrl={apiUrl} token={token} />} />
     </Routes>
   );
 };

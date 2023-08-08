@@ -5,7 +5,7 @@ const SellForm = ({ setProductInfo }) => {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
-  const [willDeliver, setWillDeliver] = useState("");
+  const [willDeliver, setWillDeliver] = useState(false);
 
   const sellSubmitHandler = (event) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ const SellForm = ({ setProductInfo }) => {
     setPrice("");
     setDescription("");
     setLocation("");
-    setWillDeliver("");
+    setWillDeliver(false);
   };
 
   return (

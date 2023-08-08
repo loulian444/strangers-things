@@ -24,6 +24,7 @@ const LoginForm = ({ setLoginInfo }) => {
             name="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
+            required
           />
         </label>
         <br />
@@ -34,6 +35,7 @@ const LoginForm = ({ setLoginInfo }) => {
             name="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            required
           />
         </label>
         <br />

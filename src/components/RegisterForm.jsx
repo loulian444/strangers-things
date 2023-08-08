@@ -32,6 +32,7 @@ const RegisterForm = ({ setRegisterInfo }) => {
             name="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
+            required
           />
         </label>
         <br />
@@ -42,6 +43,7 @@ const RegisterForm = ({ setRegisterInfo }) => {
             name="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            required
           />
         </label>
         <br />
@@ -52,6 +54,7 @@ const RegisterForm = ({ setRegisterInfo }) => {
             name="confirmPassword"
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
+            required
           />
         </label>
         <br />
