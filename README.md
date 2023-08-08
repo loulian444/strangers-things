@@ -1,3 +1,3 @@
 # Strangers Things
 
-netlify: https://64d2a7b6f4ccb70979d81e0d--poetic-cactus-d4538e.netlify.app/
+netlify: https://64d2ae70a4faca0f37439616--poetic-cactus-d4538e.netlify.app/
