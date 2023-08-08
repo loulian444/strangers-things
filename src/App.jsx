@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <Navbar token={token} />
-      <Router setToken={setToken} />
+      <Router token={token} setToken={setToken} />
     </>
   );
 };

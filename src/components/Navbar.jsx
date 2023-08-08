@@ -13,9 +13,11 @@ const Navbar = ({ token }) => {
         </section>
       </section>
 
-      <section>
-        <Link to={"/login"}>Login</Link>
-      </section>
+      {!token ? (
+        <section>
+          <Link to={"/login"}>Login/Register</Link>
+        </section>
+      ) : null}
     </nav>
   );
 };

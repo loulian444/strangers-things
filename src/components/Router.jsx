@@ -5,7 +5,7 @@ import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import Sell from "./Sell.jsx";
 
-const Router = ({ setToken }) => {
+const Router = ({ token, setToken }) => {
   const apiUrl =
     "https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf";
   return (
@@ -17,7 +17,7 @@ const Router = ({ setToken }) => {
         element={<Login apiUrl={apiUrl} setToken={setToken} />}
       />
       <Route path="/register" element={<Register apiUrl={apiUrl} />} />
-      <Route path="/sell" element={<Sell />} />
+      <Route path="/sell" element={<Sell token={token} />} />
     </Routes>
   );
 };
