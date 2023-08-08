@@ -6,6 +6,7 @@ const Marketplace = () => {
     "https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf";
 
   const [products, setProducts] = useState([]);
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     const fetchAllProducts = async () => {
@@ -19,6 +20,12 @@ const Marketplace = () => {
   }, []);
 
   console.log(products);
+
+  const detailsClickHandler = () => {
+    showDetails ? setShowDetails(false) : setShowDetails(true);
+  };
+
+  console.log(showDetails)
 
   return (
     <>
@@ -34,6 +41,9 @@ const Marketplace = () => {
                 <p>
                   <b>Price</b>: {product.price}
                 </p>
+                <button onClick={detailsClickHandler}>
+                  Details
+                </button>
               </section>
             </Grid>
           );
