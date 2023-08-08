@@ -73,7 +73,7 @@ const SellForm = ({ setProductInfo }) => {
         </label>
         <br />
         <label>
-          Will Deliver:{" "}
+          Delivery:{" "}
           <select
             name="willDeliver"
             onChange={(event) => setWillDeliver(event.target.value)}
