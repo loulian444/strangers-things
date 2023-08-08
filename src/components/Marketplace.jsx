@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 
-const Marketplace = ({ apiUrl, token }) => {
-  const [products, setProducts] = useState([]);
+const Marketplace = ({ apiUrl, token, products, setProducts }) => {
   const [changesHappened, setChangesHappened] = useState(false);
 
   useEffect(() => {
