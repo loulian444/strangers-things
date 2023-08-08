@@ -4,6 +4,7 @@
 
 nav {
   align-items: baseline;
+  justify-content: space-between;
 }
 
 #linkSection {
