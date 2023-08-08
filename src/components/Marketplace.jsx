@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 
-const Marketplace = () => {
-  const apiUrl =
-    "https://strangers-things.herokuapp.com/api/2306-fsa-et-web-ft-sf";
-
+const Marketplace = ({ apiUrl }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

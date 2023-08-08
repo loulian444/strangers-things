@@ -1,65 +1,41 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import RegisterForm from "./RegisterForm";
 
-const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [registerInfo, setRegisterInfo] = useState({});
+const Register = ({ apiUrl }) => {
+  const [registerInfo, setRegisterInfo] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    if (password === confirmPassword) {
-      setRegisterInfo({
-        username,
-        password,
-      });
-      setUsername("");
-      setPassword("");
-      setConfirmPassword("");
-    } else {
-      alert(`password does not match`);
-    }
-  };
+  useEffect(() => {
+    const registerUser = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/users/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user: registerInfo,
+          }),
+        });
+
+        const result = await response.json();
+
+        result.data
+          ? setSuccessMessage(result.data.message)
+          : setErrorMessage(result.error.message);
+      } catch (error) {
+        alert(error);
+      }
+    };
+
+    registerInfo ? registerUser() : null;
+  }, [registerInfo]);
 
   return (
     <>
-      <h1>Register</h1>
-      <form onSubmit={submitHandler}>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:{" "}
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Confirm Password:{" "}
-          <input
-            type="password"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-          />
-        </label>
-        <br />
-        <button>Register</button>
-      </form>
-      <br />
-      <Link to={"/login"}>Already a User? Login</Link>
+      {successMessage ? <p>{successMessage}</p> : <p>{errorMessage}</p>}
+      <RegisterForm setRegisterInfo={setRegisterInfo} />
     </>
   );
 };
